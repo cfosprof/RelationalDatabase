@@ -8,9 +8,13 @@
 
 ## Wireframing
 
-Brokerage branch -> Agents -> Listings -> Features -> 
+![Wireframe](./wire.png)
+
+Brokerage branch -> Agents -> Listings -> Features -> Lot size, Square ft, Year built, Bedrooms & baths, Floors, Garage space, Carport space, Pool, Zip code, List price 
 
 ## Domain Modeling
+
+
 
 ## References
 
