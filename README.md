@@ -12,11 +12,15 @@
 
 ## Database Schema
 
-![schema](./Domain_Framework.png)
+![schema](./images/schema.png)
+
+![schema1](./images/image.png)
+
+![schema2](./images/Domain_Framework.png)
 
 ## Domain Modeling 
 
-![model](./Screenshot%202023-05-12%20at%201.40.57%20PM.png)
+![model](./images/data%20flow.png)
 
 ## References
 
