@@ -8,12 +8,15 @@
 
 ## Wireframing
 
-![Wireframe](./wire.png)
+[Wireframes](./wireframes)
 
-## Domain Modeling
+## Database Schema
 
-![Domain](./Domain_Framework.png)
+![schema](./Domain_Framework.png)
 
+## Domain Modeling 
+
+![model](./Screenshot%202023-05-12%20at%201.40.57%20PM.png)
 
 ## References
 
