@@ -1,12 +1,10 @@
 package com.example.QuantumSort.models;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "application_users")
-public class AppUser {
+@Table(name = "application_clients")
+public class ClientUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,7 +12,7 @@ public class AppUser {
     private String lastName;
     private String userName;
     private String password;
-    private boolean isAgent;
+
     private LocalDate dateOfBirth;
 
     @Override
@@ -25,7 +23,6 @@ public class AppUser {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
-                ", isAgent=" + isAgent +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
@@ -78,11 +75,5 @@ public class AppUser {
         this.userName = userName;
     }
 
-    public boolean isAgent() {
-        return isAgent;
-    }
 
-    public void setAgent(boolean agent) {
-        isAgent = agent;
-    }
 }
