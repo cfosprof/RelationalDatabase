@@ -30,11 +30,11 @@
 
 ![schema1](./images/image.png)
 
-![schema2](./images/Domain_Framework.png)
 
 ## Domain Modeling 
 
-![model](./images/data%20flow.png)
+![schema2](./images/Domain_Framework.png)
+
 
 ## References
 

@@ -46,7 +46,7 @@ OUT
 
 - The flow of our data will allow users to utilize the view feature in our MVC application where models will be created based on listings and allow access to agents and admin to implement CRUD within our local database.
 
-![data flow](./data%20flow.png)
+![data flow](./images/data%20flow.png)
 
 ## Non-functional requirements
 
