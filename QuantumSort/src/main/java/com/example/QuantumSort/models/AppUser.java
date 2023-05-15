@@ -13,6 +13,7 @@ public class AppUser {
     private String firstName;
     private String lastName;
     private String userName;
+    private String password;
     private boolean isAgent;
     private LocalDate dateOfBirth;
 
@@ -23,9 +24,18 @@ public class AppUser {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 ", isAgent=" + isAgent +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public long getId() {
