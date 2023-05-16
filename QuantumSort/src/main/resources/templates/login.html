@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="">
+    <title>Real Estate Login</title>
+</head>
+<body>
+<h2>Please Login</h2>
+
+<h3>Agent Login</h3>
+<form action="agent_login.php" method="POST">
+    <label for="agent_username">Username:</label>
+    <input type="text" id="agent_username" name="agent_username" required>
+    <br><br>
+    <label for="agent_password">Password:</label>
+    <input type="password" id="agent_password" name="agent_password" required>
+    <br><br>
+    <input type="submit" value="Login as Agent">
+</form>
+
+<h3>Client Login</h3>
+<form action="client_login.php" method="POST">
+    <label for="client_username">Username:</label>
+    <input type="text" id="client_username" name="client_username" required>
+    <br><br>
+    <label for="client_password">Password:</label>
+    <input type="password" id="client_password" name="client_password" required>
+    <br><br>
+    <input type="submit" value="Login as Client">
+</form>
+<p>Don't have an account? <a href="/signUp">Sign Up</a></p>
+
+</body>
+
+
+</html>

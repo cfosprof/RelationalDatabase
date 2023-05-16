@@ -20,7 +20,6 @@ public class WebSecurityConfig {
 
     @Autowired
     @Qualifier("userDetailsServiceImpl")
-    private UserDetailsService userDetailsService;
 
      @Bean
      public PasswordEncoder passwordEncoder() {
@@ -32,28 +31,29 @@ public class WebSecurityConfig {
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
         return new HiddenHttpMethodFilter();
     }
-
+    private UserDetailsService RealtorDetailServiceImpl;
     @Bean
     protected SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
+
         http
                 .cors().disable()
                 .csrf().disable()
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/signup").permitAll()
-                        .requestMatchers("/**").permitAll()
+                        .requestMatchers("/css/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("AGENT")
                         .anyRequest().authenticated()
                 )
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/myprofile", true)
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/login")
                 .and()
                 .getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userDetailsService)
+                .userDetailsService(RealtorDetailServiceImpl)
                 .passwordEncoder(passwordEncoder());
 
         return http.build();

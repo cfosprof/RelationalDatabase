@@ -16,21 +16,13 @@ public class ApplicationUser {
     protected String lastName;
     protected boolean isAgent;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
 
     public boolean isAgent() {
-        return isAgent;
+        return false;
     }
 
     public void setAgent(boolean agent) {
-        isAgent = agent;
+        isAgent = false;
     }
 
     @Override
@@ -42,7 +34,6 @@ public class ApplicationUser {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", isAgent=" + isAgent +
-                ", roles=" + roles +
                 '}';
     }
 
@@ -84,13 +75,5 @@ public class ApplicationUser {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Collection<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
     }
 }

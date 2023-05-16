@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Real Estate Listings</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+<div class="container">
+    <div class="listing" th:each="listing : ${listings}">
+        <img src="https://unsplash.it/600/400" alt="Property Image">
+        <div class="listing-details">
+            <h2 th:text="${listing.address}"></h2>
+            <p><strong>Beds:</strong> <span th:text="${listing.beds}"></span></p>
+            <p><strong>Bath:</strong> <span th:text="${listing.bath}"></span></p>
+            <p><strong>Lot Size:</strong> <span th:text="${listing.lotSize}"></span> sqft</p>
+            <p><strong>Sqft:</strong> <span th:text="${listing.sqFt}"></span> sqft</p>
+            <p><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
+            <p><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
+            <p><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
+            <p><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
+            <p><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
+            <p><strong>Active:</strong> <span th:text="${listing.isActive} ? 'Yes' : 'No'"></span></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
