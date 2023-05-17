@@ -70,6 +70,6 @@ public class AppUserController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login.html";
+        return "login";
     }
 }

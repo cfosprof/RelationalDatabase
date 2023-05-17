@@ -6,13 +6,15 @@ import com.example.QuantumSort.repos.ListingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
 
-@RestController
+@Controller
+
 @RequestMapping("/listings")
 public class ListingController {
     @Autowired
@@ -34,8 +36,18 @@ public class ListingController {
     @GetMapping("/show")
     public String showListings(Model model) {
         List<Listing> listings = listingRepository.findAll();
-        model.addAttribute("listings", new Listing());
+        model.addAttribute("listings", listings);
         return "listings";
+    }
+
+    @PostMapping("/new")
+    public String createListing(@ModelAttribute Listing newListing, @AuthenticationPrincipal ApplicationUser user) {
+        if (user.isAgent()) {
+            listingRepository.save(newListing);
+            return "redirect:/listings/show";
+        } else {
+            return "redirect:/login";
+        }
     }
 
     @PostMapping("/{id}")

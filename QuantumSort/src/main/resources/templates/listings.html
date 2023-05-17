@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,25 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real Estate Listings</title>
-    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 <div class="container">
+    <div th:if="${#authentication.principal.isAgent}">
+        <form action="/listings/new" method="post">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+            <!-- Additional form fields for other Listing properties -->
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" id="bedrooms" name="bedrooms">
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" id="bathrooms" name="bathrooms">
+            <label for="squareFeet">Square Feet:</label>
+            <input type="number" id="squareFeet" name="squareFeet">
+            <label for="yearBuilt">Year Built:</label>
+            <input type="number" id="yearBuilt" name="yearBuilt">
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" id="zipCode" name="zipCode">
+            <label for="garage">Garage:</label>
+            <input type="checkbox" id="garage" name="garage">
+            <label for="listPrice">List Price:</label>
+            <input type="number" id="listPrice" name="listPrice">
+            <label for="hasPool">Has Pool:</label>
+            <input type="checkbox" id="hasPool" name="hasPool">
+            <input type="submit" value="Create Listing">
+        </form>
+    </div>
     <div class="listing" th:each="listing : ${listings}">
         <img class="img" src="https://unsplash.it/600/400" alt="Property Image">
         <div class="listing-details">
             <h2 th:text="${listing.address}"></h2>
-            <p><strong>Beds:</strong> <span th:text="${listing.beds}"></span></p>
-            <p><strong>Bath:</strong> <span th:text="${listing.bath}"></span></p>
-            <p><strong>Lot Size:</strong> <span th:text="${listing.lotSize}"></span> sqft</p>
-            <p><strong>Sqft:</strong> <span th:text="${listing.sqFt}"></span> sqft</p>
+            <p><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span></p>
+            <p><strong>Bathrooms:</strong> <span th:text="${listing.bathrooms}"></span></p>
+            <p><strong>Square Feet:</strong> <span th:text="${listing.squareFeet}"></span> sqft</p>
             <p><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
             <p><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
             <p><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
             <p><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
             <p><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
-            <p><strong>Active:</strong> <span th:text="${listing.isActive} ? 'Yes' : 'No'"></span></p>
+            <p><strong>Active:</strong> <span th:text="${listing.active} ? 'Yes' : 'No'"></span></p>
         </div>
     </div>
 </div>
