@@ -6,6 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
+//delete out 10/13
+public interface ListingRepository extends JpaRepository<Listing, Long> {
+
+    Listing findById(String id);
+}
 
 public interface ListingRepository extends JpaRepository<Listing, Long> {
 
