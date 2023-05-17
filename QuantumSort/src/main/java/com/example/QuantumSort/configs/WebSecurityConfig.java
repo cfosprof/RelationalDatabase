@@ -18,20 +18,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    @Autowired
-    @Qualifier("userDetailsServiceImpl")
+
+@Autowired
+private RealtorDetailServiceImpl realtorDetailServiceImpl;
+
 
      @Bean
      public PasswordEncoder passwordEncoder() {
-         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-         return bCryptPasswordEncoder;
+         return new BCryptPasswordEncoder();
      }
 
-    @Bean
-    public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
-        return new HiddenHttpMethodFilter();
-    }
-    private UserDetailsService RealtorDetailServiceImpl;
     @Bean
     protected SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
 
@@ -40,9 +36,8 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/signup").permitAll()
+                        .requestMatchers("/signUp").permitAll()
                         .requestMatchers("/css/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("AGENT")
                         .anyRequest().authenticated()
                 )
                 .formLogin()
@@ -53,7 +48,7 @@ public class WebSecurityConfig {
                 .logoutSuccessUrl("/login")
                 .and()
                 .getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(RealtorDetailServiceImpl)
+                .userDetailsService(realtorDetailServiceImpl)
                 .passwordEncoder(passwordEncoder());
 
         return http.build();

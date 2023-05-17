@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real Estate Listings</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 <div class="container">
     <div class="listing" th:each="listing : ${listings}">
-        <img src="https://unsplash.it/600/400" alt="Property Image">
+        <img class="img" src="https://unsplash.it/600/400" alt="Property Image">
         <div class="listing-details">
             <h2 th:text="${listing.address}"></h2>
             <p><strong>Beds:</strong> <span th:text="${listing.beds}"></span></p>

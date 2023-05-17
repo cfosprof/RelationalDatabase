@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
-    <link rel="" href="">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1>Sign Up!</h1>
-<form action="/signup" method="POST">
+<form action="/signUp" method="POST">
     <label for="username">Username</label>
-    <input id="username" type="text" name="username" required>
+    <input id="username" type="text" name="userName" required>
 
     <label for="password">Password</label>
     <input id="password" name="password" type="password" required>
@@ -22,10 +22,10 @@
     <label for="lastName">Last Name</label>
     <input id="lastName" name="lastName" type="text" required>
 
-    <label for="isAgent">Are you an agent?</label>
-    <input id="isAgent" name="isAgent" type="checkbox">
+<!--    <label for="isAgent">Are you an agent?</label>-->
+<!--    <input id="isAgent" name="isAgent" type="checkbox" th:checked="${user.isAgent}">-->
 
-    <button type="submit">Sign Up</button>
+    <input type="submit" value="Sign Up">
 </form>
 </body>
 </html>
