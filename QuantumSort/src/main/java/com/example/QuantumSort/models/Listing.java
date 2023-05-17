@@ -9,9 +9,7 @@ public class Listing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "agent_id", nullable = false)
-    private ApplicationUser agent;
+    private Long agentId;
 
     private String title;
     private String description;
@@ -53,13 +51,9 @@ public class Listing {
         this.id = id;
     }
 
-    public ApplicationUser getAgent() {
-        return agent;
-    }
+    public Long getAgentId() {return agentId;}
 
-    public void setAgent(ApplicationUser agent) {
-        this.agent = agent;
-    }
+    public void setAgentId(Long agentId) {this.agentId = agentId;}
 
     public String getTitle() {
         return title;
