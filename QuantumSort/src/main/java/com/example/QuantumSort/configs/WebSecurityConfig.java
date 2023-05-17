@@ -38,6 +38,7 @@ private RealtorDetailServiceImpl realtorDetailServiceImpl;
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/signUp").permitAll()
                         .requestMatchers("/css/**").permitAll()
+                        .requestMatchers("/listings/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin()
