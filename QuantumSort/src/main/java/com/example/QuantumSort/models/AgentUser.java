@@ -7,9 +7,9 @@ import java.time.LocalDate;
 public class AgentUser extends ApplicationUser{
         private String email;
 
-//        @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL)
-//        private List<Listing> listingList;
-
+    public AgentUser(String userName, String password, String firstName, String lastName) {
+        super(userName, password, firstName, lastName);
+    }
 
     public String getEmail() {
         return email;

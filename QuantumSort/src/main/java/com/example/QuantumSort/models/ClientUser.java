@@ -5,4 +5,7 @@ import jakarta.persistence.*;
 @Table(name = "application_clients")
 public class ClientUser extends ApplicationUser {
 
+    public ClientUser(String userName, String password, String firstName, String lastName) {
+        super(userName, password, firstName, lastName);
+    }
 }

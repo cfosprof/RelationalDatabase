@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/listings")
 public class ListingController {
-Listing listing;
     @Autowired
     private ListingRepository listingRepository;
 
@@ -35,34 +34,30 @@ Listing listing;
     @GetMapping("/show")
     public String showListings(Model model) {
         List<Listing> listings = listingRepository.findAll();
-        model.addAttribute("listings", new Listing();
+        model.addAttribute("listings", new Listing());
         return "listings";
     }
 
     @PostMapping("/{id}")
-public String updateListing(@PathVariable Long id, @ModelAttribute Listing listing, @AuthenticationPrincipal ApplicationUser user) {
+    public ResponseEntity<Listing> updateListing(@PathVariable Long id, @RequestBody Listing updatedListing, @AuthenticationPrincipal ApplicationUser user) {
         if (user.isAgent()) {
-            listing.setActive(true);
-            listingRepository.save(listing);
-    }
-
-
-
-
-
-//        listing.setAddress(updatedListing.getAddress());
-//        listing.setBeds(updatedListing.getBeds());
-//        listing.setBath(updatedListing.getBath());
-//        listing.setLotSize(updatedListing.getLotSize());
-//        listing.setSqFt(updatedListing.getSqFt());
-//        listing.setYearBuilt(updatedListing.getYearBuilt());
-//        listing.setZipCode(updatedListing.getZipCode());
-//        listing.setGarage(updatedListing.getGarage());
-//        listing.setListPrice(updatedListing.getListPrice());
-//        listing.setHasPool(updatedListing.isHasPool());
-//        listing.setActive(updatedListing.isActive());
-
-        //Listing updatedListingResult = listingRepository.save(listing);
-        //return ResponseEntity.ok(updatedListingResult);
+            return listingRepository.findById(id)
+                    .map(listing -> {
+                        listing.setAddress(updatedListing.getAddress());
+                        listing.setBedrooms(updatedListing.getBedrooms());
+                        listing.setBathrooms(updatedListing.getBathrooms());
+                        listing.setSquareFeet(updatedListing.getSquareFeet());
+                        listing.setYearBuilt(updatedListing.getYearBuilt());
+                        listing.setZipCode(updatedListing.getZipCode());
+                        listing.setGarage(updatedListing.getGarage());
+                        listing.setListPrice(updatedListing.getListPrice());
+                        listing.setHasPool(updatedListing.isHasPool());
+                        listing.setActive(updatedListing.isActive());
+                        Listing updatedListingResult = listingRepository.save(listing);
+                        return ResponseEntity.ok(updatedListingResult);
+                    }).orElseGet(() -> ResponseEntity.notFound().build());
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

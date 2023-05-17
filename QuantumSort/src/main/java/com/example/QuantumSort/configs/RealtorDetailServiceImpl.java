@@ -1,5 +1,6 @@
 package com.example.QuantumSort.configs;
 import com.example.QuantumSort.models.ApplicationUser;
+import com.example.QuantumSort.repos.ApplicationUserRepository;
 import com.example.QuantumSort.repos.ClientRepository;
 import com.example.QuantumSort.repos.AgentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +15,20 @@ import java.util.Collection;
 @Service
 public class RealtorDetailServiceImpl implements UserDetailsService {
 
-    @Autowired
+   /* @Autowired
     private AgentRepository agentRepository;
 
     @Autowired
-    private ClientRepository clientRepository;
+    private ClientRepository clientRepository;*/
+
+    @Autowired
+    private ApplicationUserRepository applicationUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        ApplicationUser user = agentRepository.findByUsername(username);
-        if (user == null) {
-                throw new UsernameNotFoundException("You are not signed up.");
-        }
-        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), getAuthorities(user));
+        return (UserDetails) applicationUserRepository.findByUserName(username);
+
+
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities(ApplicationUser user) {
-        String userRole = user.isAgent() ? "AGENT" : "CLIENT";
-        return AuthorityUtils.createAuthorityList(userRole);
-    }
 }
