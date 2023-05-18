@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.Optional;
 import java.util.List;
 
 @Controller
@@ -33,6 +33,17 @@ public class ListingController {
         return "listing";
     }
 
+    @GetMapping("/{id}/details")
+    public String viewListing(@PathVariable("id") Long id, Model model) {
+        Optional<Listing> listing = listingRepository.findById(id);
+        if (listing.isPresent()) {
+            model.addAttribute("listing", listing.get());
+            return "listingDetails";
+        } else {
+            return "error";
+        }
+    }
+
     @GetMapping("/show")
     public String showListings(Model model) {
         List<Listing> listings = listingRepository.findAll();
@@ -49,6 +60,20 @@ public class ListingController {
             return "redirect:/login";
         }
     }
+
+    @GetMapping("/search")
+    public String searchForm() {
+        return "search";
+    }
+
+    @GetMapping("/searchResults")
+    public String search(@RequestParam String query, Model model) {
+        List<Listing> listings = listingRepository.search(query);
+        model.addAttribute("listings", listings);
+        return "searchResults";
+    }
+
+
 
     @PostMapping("/{id}")
     public ResponseEntity<Listing> updateListing(@PathVariable Long id, @RequestBody Listing updatedListing, @AuthenticationPrincipal ApplicationUser user) {
