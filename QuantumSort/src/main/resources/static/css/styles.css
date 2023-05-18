@@ -1,7 +1,68 @@
+/* Reset CSS  */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 /* All CSS */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
 h1 {
 text-align: center;
+font-size: 35px;
+  font-weight: bold;
 }
 
 h2 {
@@ -11,7 +72,10 @@ h2 {
 p {
   text-align: center
 }
-/* Login CSS */
+
+
+
+/* Home page CSS */
 #myVideo {
   position: relative;
   right: 0;
@@ -42,6 +106,7 @@ p {
 
 #loginButton{
   cursor: pointer;
+  
   width: 100px;
   font-size: 18px;
   padding: 10px;
@@ -49,9 +114,9 @@ p {
   background: #000;
   color: #fff;
   border-radius: 25px;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #loginButton:hover{
@@ -59,17 +124,92 @@ margin-right: auto;
   color: black;
 }
 
+/* login CSS */
+
+
+#login-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  height: 100vh;
+  height: 100svh;
+  background-image: linear-gradient(to left bottom, #2fadff, #2097da, #1980b5, #196b92, #1b5571, #13506e, #094a6a, #004567, #004d7f, #005397, #0059af, #235cc4);
+  color: white;
+}
+
+#contentContainer{
+  margin: 4%;
+  z-index: 1;
+  background-color: 	rgb(0,0,0, .65);
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.loginFormInput{
+  border-radius: 8px;
+  height: 25px;
+  width: 300px;
+  border: 0px;
+  background-color: rgb(0,0,0,0);
+  border: 1px solid white;
+  color: white;
+  
+  
+}
+.loginFormInput:hover{
+  box-shadow: 0 0 30px 15px #48abe0;
+}
+
+#signUpContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+#signupButton{
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+#rightSide{
+  width: 45%;
+  margin-top: 10%;
+}
+
+#loginHeaderH1{
+  margin-bottom: 1.5%;
+}
+#loginSubHeaderH2{
+  margin-bottom: 4.5%;
+  color: rgb(211, 211, 211, .4)  ;
+  font-weight:lighter;
+}
+#leftSide{
+  width: 40%;
+}
+#ring{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 100px solid rgba(54, 242, 255, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+  bottom: -26%;
+  left: -10%;
+}
+
+
+
+/* SIGN UP CSS */
 form {
   text-align: center;
 }
 
-
-/* SIGN UP CSS */
-
-
-/* .img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 25px;
-} */
