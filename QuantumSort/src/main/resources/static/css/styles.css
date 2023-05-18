@@ -206,7 +206,10 @@ p {
   left: -10%;
 }
 
-
+#logoImg{
+  height: 800px;
+  width: 800px;
+}
 
 /* SIGN UP CSS */
 form {
