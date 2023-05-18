@@ -93,34 +93,34 @@
         </form>
     </div>
 
-                <div class="row">
-                    <div th:each="listing : ${listings}" class="col-md-4">
-                        <div class="card my-4">
-                            <img class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${listing.title}"></h5>
-                                <p class="card-text"><strong>Address:</strong> <span th:text="${listing.address}"></span></p>
-                                <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span></p>
-                                <p class="card-text"><strong>City:</strong> <span th:text="${listing.city}"></span></p>
-                                <p class="card-text"><strong>State:</strong> <span th:text="${listing.state}"></span></p>
-                                <p class="card-text"><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
-                                <p class="card-text"><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span></p>
-                                <p class="card-text"><strong>Bathrooms:</strong> <span th:text="${listing.bathrooms}"></span></p>
-                                <p class="card-text"><strong>Square Feet:</strong> <span th:text="${listing.squareFeet}"></span></p>
-                                <p class="card-text"><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
-                                <p class="card-text"><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
-                                <p class="card-text"><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
-                                <p class="card-text"><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
-                                <p class="card-text"><strong>Is Active:</strong> <span th:text="${listing.isActive} ? 'Yes' : 'No'"></span></p>
-                            </div>
-
-
-                            <a href="#" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
+    <div class="row">
+        <div th:each="listing : ${listings}" class="col-md-4">
+            <div class="card my-4">
+                <img class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${listing.title}"></h5>
+                    <p class="card-text"><strong>Address:</strong> <span th:text="${listing.address}"></span></p>
+                    <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span></p>
+                    <p class="card-text"><strong>City:</strong> <span th:text="${listing.city}"></span></p>
+                    <p class="card-text"><strong>State:</strong> <span th:text="${listing.state}"></span></p>
+                    <p class="card-text"><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
+                    <p class="card-text"><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span></p>
+                    <p class="card-text"><strong>Bathrooms:</strong> <span th:text="${listing.bathrooms}"></span></p>
+                    <p class="card-text"><strong>Square Feet:</strong> <span th:text="${listing.squareFeet}"></span></p>
+                    <p class="card-text"><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
+                    <p class="card-text"><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
+                    <p class="card-text"><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
+                    <p class="card-text"><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'}"></span></p>
+                    <p class="card-text"><strong>Is Active:</strong> <span th:text="${listing.isActive} ? 'Yes' : 'No'}"></span></p>
                 </div>
-            </div>
 
-            </body>
-            </html>
+
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
