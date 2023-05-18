@@ -179,8 +179,16 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+
+#loginButton{
+  background-color: rgba(37,150,190,255) !important ;
+  width: 210px !important;
+  height: 50px !important;
+  text-align: center;
+}
+
 #rightSide{
-  width: 45%;
+  width: 40%;
   margin-top: 10%;
 }
 
@@ -193,22 +201,35 @@ p {
   font-weight:lighter;
 }
 #leftSide{
-  width: 40%;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #ring{
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
   border: 100px solid rgba(54, 242, 255, 0.3);
   border-radius: 50%;
   z-index: 0;
-  bottom: -26%;
+  bottom: -30%;
   left: -10%;
 }
 
 #logoImg{
-  height: 800px;
-  width: 800px;
+  max-height: max-content;
+  max-width: max-content;
+  
+}
+#imageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 500px;
 }
 
 /* SIGN UP CSS */

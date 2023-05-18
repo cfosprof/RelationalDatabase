@@ -7,6 +7,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Real Estate Login</title>
 </head>
 
@@ -15,8 +16,9 @@
         <section id="login-container">
             <div id="contentContainer">
                 <div id="leftSide">
-                    <img id="logoImg" src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true" height="500" width="500" alt="Quantum Logo"/> 
-                </div>
+                    <div id="imageContainer"><img id="logoImg" src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true" height="500" width="500" alt="Quantum Logo"/> 
+                    </div>
+<div></div>                </div>
                 <div id="rightSide">
                     <div id="loginHeaderContainer">
 
@@ -42,7 +44,7 @@
                             <input class="loginFormInput" type="password" id="password" name="password"
                                 placeholder="Password" required>
                             <br><br>
-                            <input type="submit" value="Login">
+                            <button id="loginButton" type="submit" class="btn btn-login">Login</button>
                         </form>
 
                     </div>
