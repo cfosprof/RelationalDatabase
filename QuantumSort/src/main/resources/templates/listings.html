@@ -11,27 +11,57 @@
 <div class="container">
     <div th:if="${#authentication.principal.isAgent}">
         <form action="/listings/new" method="post">
+            <label for="agentId">Agent ID:</label>
+            <input type="number" id="agentId" name="agentId">
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description">
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price">
+
             <label for="address">Address:</label>
             <input type="text" id="address" name="address">
-            <!-- Additional form fields for other Listing properties -->
-            <label for="bedrooms">Bedrooms:</label>
-            <input type="number" id="bedrooms" name="bedrooms">
-            <label for="bathrooms">Bathrooms:</label>
-            <input type="number" id="bathrooms" name="bathrooms">
-            <label for="squareFeet">Square Feet:</label>
-            <input type="number" id="squareFeet" name="squareFeet">
-            <label for="yearBuilt">Year Built:</label>
-            <input type="number" id="yearBuilt" name="yearBuilt">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state">
+
             <label for="zipCode">Zip Code:</label>
             <input type="text" id="zipCode" name="zipCode">
+
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" id="bedrooms" name="bedrooms">
+
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" id="bathrooms" name="bathrooms">
+
+            <label for="squareFeet">Square Feet:</label>
+            <input type="number" id="squareFeet" name="squareFeet">
+
+            <label for="yearBuilt">Year Built:</label>
+            <input type="number" id="yearBuilt" name="yearBuilt">
+
             <label for="garage">Garage:</label>
-            <input type="checkbox" id="garage" name="garage">
+            <input type="number" id="garage" name="garage">
+
             <label for="listPrice">List Price:</label>
             <input type="number" id="listPrice" name="listPrice">
+
             <label for="hasPool">Has Pool:</label>
             <input type="checkbox" id="hasPool" name="hasPool">
+
+            <label for="isActive">Is Active:</label>
+            <input type="checkbox" id="isActive" name="isActive">
+
             <input type="submit" value="Create Listing">
         </form>
+
     </div>
     <div class="listing" th:each="listing : ${listings}">
         <img class="img" src="https://unsplash.it/600/400" alt="Property Image">
