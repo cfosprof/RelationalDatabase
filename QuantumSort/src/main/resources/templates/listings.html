@@ -132,8 +132,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">
+                            <Button id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">Create Listing</Button>
+                            <!-- <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary"> -->
                         </form>
                     </div>
                 </div>
@@ -165,9 +165,8 @@
                                 <p class="card-text"><strong>Square Feet:</strong> <span
                                         th:text="${listing.squareFeet}"></span></p>
                             </div>
-
-                            <a id="listings-button" th:href="@{/listings/listingDetails/{id}(id=${listing.id})}"
-                                class="btn btn-primary">View Details</a>
+                            <Button id="listings-button" th:href="@{/listings/listingDetails/{id}(id=${listing.id})}"
+                            class="btn btn-primary">View Details</Button>
                         </div>
                     </div>
                 </div>
