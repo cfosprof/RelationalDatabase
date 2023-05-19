@@ -1,5 +1,4 @@
 package com.example.QuantumSort.controllers;
-package com.example.QuantumSort.repos;
 
 import com.example.QuantumSort.models.ApplicationUser;
 import com.example.QuantumSort.models.Listing;

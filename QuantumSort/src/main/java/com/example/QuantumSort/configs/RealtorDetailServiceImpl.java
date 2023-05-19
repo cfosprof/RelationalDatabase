@@ -2,7 +2,6 @@ package com.example.QuantumSort.configs;
 import com.example.QuantumSort.models.ApplicationUser;
 import com.example.QuantumSort.repos.ApplicationUserRepository;
 import com.example.QuantumSort.repos.ClientRepository;
-import com.example.QuantumSort.repos.AgentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
