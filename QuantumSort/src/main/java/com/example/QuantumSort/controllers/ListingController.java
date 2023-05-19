@@ -51,6 +51,13 @@ public class ListingController {
         return "listings";
     }
 
+    @GetMapping("/listingDetails/{id}")
+    public String showListingDetails(@PathVariable("id") Long id, Model model) {
+        Listing listing = listingRepository.findById(id).orElse(null);
+        model.addAttribute("listing", listing);
+        return "listingDetails";
+    }
+
     @PostMapping("/new")
     public String createListing(@ModelAttribute Listing newListing, @AuthenticationPrincipal ApplicationUser user) {
         if (user.isAgent()) {
