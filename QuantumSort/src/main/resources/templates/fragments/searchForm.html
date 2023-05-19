@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
 </head>
 <body>
+
 <div th:fragment="searchForm" class="search-container">
     <img class="logo-header" src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true" height="75px" width="75px" alt="Quantum Logo">
+
     <form action="/listings/searchResults" method="get" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Enter your city..." aria-label="Search" name="query" id="query">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </div>
 </body>
+
 </html>
