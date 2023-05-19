@@ -60,10 +60,31 @@ html, body {
   overflow: hidden;
 }
 
+button:hover{
+  scale: 1.2;
+}
+
+a{
+  color: #000;
+  border: #000 1px solid;
+  padding: 3px;
+  border-radius: 5px;
+}
+a:hover{
+  scale: 1.2;
+  border-radius: 5px;
+  border: #000 1px solid;
+}
 #html{
   overflow: auto;
   background-image: linear-gradient(to left bottom, #2fadff, #2097da, #1980b5, #196b92, #1b5571, #13506e, #094a6a, #004567, #004d7f, #005397, #0059af, #235cc4);
-  margin-top: -75px;
+  height: 100vh;
+  height: 100svh;
+}
+#agentHtml{
+  overflow: auto;
+  height: 100vh;
+  height: 100svh;
 }
 
 
@@ -149,7 +170,8 @@ p {
   margin: 0px;
   padding: 0px;
   border: 0px;
-
+  height: 100vh;
+  height: 100svh;
   background-image: linear-gradient(to left bottom, #2fadff, #2097da, #1980b5, #196b92, #1b5571, #13506e, #094a6a, #004567, #004d7f, #005397, #0059af, #235cc4);
   color: white;
 }
@@ -190,11 +212,11 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
-#signupButton{
-  width: max-content;
+.signupButtonContainer{
   margin-left: auto;
   margin-right: auto;
 }
+
 
 #loginButton{
   background-color: rgba(37,150,190,255) !important ;
@@ -277,16 +299,21 @@ form {
 
 .agent-photo {
   width: 250px;
-  height: 450px;
+  height: 300px;
+  border-radius: 15px;
 }
 
 .agent-name {
   margin-top: 10px;
+  margin-bottom: 20px;
   font-weight: bold;
+  font-size: 18px;
+  
 }
 
 .agent-description {
   margin-top: 5px;
+  
 }
 
 /* LISTINGS PAGE */
@@ -391,6 +418,10 @@ margin-bottom: 20px;
 
 /* LISTINGS DETAILS */
 
+.listingDetailsOf3{
+
+}
+
 #card-img{
   margin-left: auto !important;
   margin-right: auto !important;
@@ -408,6 +439,14 @@ margin-bottom: 20px;
   width: 100%;
 
 }
+.detailsCard {
+  margin: 4%;
+  margin-top: 10px;
+ z-index: 1;
+ border-radius: 25px;
+ width: 90%;
+
+}
 
 #details-address{
   font-size: 30px;
@@ -417,11 +456,33 @@ margin-bottom: 20px;
 
 #all-card-text{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   font-size: 25px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.card-text{
+  margin-bottom: 10%;
+}
+#all-listings-button{
+  cursor: pointer;
+  margin-top: 5%;
+  width: 100px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#listing-details-button-container{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* HEADER DETAILS */
 
@@ -448,19 +509,24 @@ margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 92;
 }
 
 #headerBackground2 {
+ background-color: rgb(0,0,0, 0);
+  width: 100%;
+  z-index: 90;
+  position: sticky;
+  top: 0;
+}
+
+#listingDetailsHeaderBackground2{
   background-image: linear-gradient(to left bottom, #2fadff, #2097da, #1980b5, #196b92, #1b5571, #13506e, #094a6a, #004567, #004d7f, #005397, #0059af, #235cc4);
   width: 100%;
-  z-index: 0;
+  z-index: 90;
+  position: sticky;
+  top: 0;
 }
-
-#headerBackground1 {
-  background-color: rgb(0,0,0,.65);
-  z-index: 1;
-}
-
 
 .logo-header {
   margin-right: 10px;
@@ -472,7 +538,8 @@ margin-bottom: 20px;
   justify-content: space-around ;
   margin-right: 40px;
   font-size: 18px;
-  width: 500px;
+  width: 350px;
+
 }
 
 /* ERROR */
@@ -480,6 +547,10 @@ margin-bottom: 20px;
 #error-html{
   text-align: center;
   font-size: 20px;
+}
+
+.error-2{
+  margin-top: 5%;
 }
 
 #search-pic{

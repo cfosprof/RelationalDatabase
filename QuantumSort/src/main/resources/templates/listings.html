@@ -12,7 +12,19 @@
 
 <body>
     <div id="html">
-        <div th:replace="fragments/header :: header"></div>
+        <div id="headerBackground2" th:fragment="header">
+            <div id="headerBackground1">
+                <div class="header-container">
+                    <div th:replace="fragments/searchForm :: searchForm"></div>
+                    <div id="articleContainer">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/listings/show}">Listings</a>
+            <a th:href="@{/agents}">Agents</a>
+            <a th:href="@{/login}">Login</a>
+        </div>
+        </div>    
+    </div>
+    </div>
         <div id="card-container">
             <div class="container my-4">
                 <div id="listing-form-background">
