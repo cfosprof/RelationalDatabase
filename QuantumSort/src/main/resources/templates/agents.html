@@ -4,10 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <title>Document</title>
 </head>
 <body>
+  <div id="agentHtml">
+    <div id="listingDetailsHeaderBackground2" th:fragment="header">
+      <div id="headerBackground1">
+          <div class="header-container">
+              <div th:replace="fragments/searchForm :: searchForm"></div>
+              <div id="articleContainer">
+      <a th:href="@{/}">Home</a>
+      <a th:href="@{/listings/show}">Listings</a>
+      <a th:href="@{/agents}">Agents</a>
+      <a th:href="@{/login}">Login</a>
+  </div>
+  </div>    
+</div>
+</div>
     <div class="agent-container">
         <div class="agent-card">
           <img src="https://avatars.githubusercontent.com/u/101752687?v=4" class="agent-photo" alt="Cam's Face">
@@ -17,34 +32,40 @@
           </div>
         </div>
         <div class="agent-card">
-          <img src="http://via.placeholder.com/250x450" class="agent-photo" alt="Agent 2">
-          <div class="agent-name">Agent 2</div>
+          <img src="https://avatars.githubusercontent.com/u/121984345?v=4" class="agent-photo" alt="Stephen in front of cactus">
+          <div class="agent-name">Stephen 'Batman' Levesque</div>
           <div class="agent-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Stephen is actually a realtor by day, and full stack computer programmer by day and night because CodeFellows takes up 100% of his time right now. He is excited about what the future holds in programming and is looking forward to being able to continure to provide for his family.
           </div>
         </div>
         <div class="agent-card">
-          <img src="http://via.placeholder.com/250x450" class="agent-photo" alt="Agent 3">
-          <div class="agent-name">Agent 3</div>
+          <img src="https://avatars.githubusercontent.com/u/122303931?v=4" class="agent-photo" alt="Agent 3">
+          <div class="agent-name">Andrew Vreeland</div>
           <div class="agent-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Andrew Vreeland is a software developer with experience in full-stack JS and Java.
           </div>
         </div>
         <div class="agent-card">
-          <img src="http://via.placeholder.com/250x450" class="agent-photo" alt="Agent 4">
-          <div class="agent-name">Agent 4</div>
+          <img src="https://avatars.githubusercontent.com/u/123141105?v=4" class="agent-photo" alt="Agent 4">
+          <div class="agent-name">DaJon Ewing</div>
           <div class="agent-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            DaJon is a software developer and Navy veteran who is dedicated to making a difference in the constantly evolving tech industry.
           </div>
         </div>
         <div class="agent-card">
-          <img src="http://via.placeholder.com/250x450" class="agent-photo" alt="Agent 5">
-          <div class="agent-name">Agent 5</div>
+          <img src="https://avatars.githubusercontent.com/u/122247310?v=4" class="agent-photo" alt="Agent 5">
+          <div class="agent-name">Christopher Foster</div>
           <div class="agent-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
         </div>
       </div>
-  
+
+      <video autoplay muted loop id="myVideo" style="height: 80px;">
+        <source
+            src="https://cdn.pixabay.com/vimeo/706323929/house-115979.mp4?width=640&hash=5963b2a3c0e054249944094acd9a8dbe7ffb79c4"
+            type="video/mp4">
+    </video>
+  </div>
 </body>
 </html>
