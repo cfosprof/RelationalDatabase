@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/searchForm :: searchForm"></div>
+<div class="listingDetails">
+    <h2 th:text="${listing.address}"></h2>
+    <p><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span></p>
+    <p><strong>Bathrooms:</strong> <span th:text="${listing.bathrooms}"></span></p>
+    <p><strong>Square Feet:</strong> <span th:text="${listing.squareFeet}"></span> sqft</p>
+    <p><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
+    <p><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
+    <p><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
+    <p><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
+    <p><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
+    <p><strong>Active:</strong> <span th:text="${listing.active} ? 'Yes' : 'No'"></span></p>
+</div>
+
+</body>
+</html>
