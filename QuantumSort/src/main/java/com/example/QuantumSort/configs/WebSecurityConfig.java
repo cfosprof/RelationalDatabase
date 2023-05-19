@@ -43,7 +43,7 @@ private RealtorDetailServiceImpl realtorDetailServiceImpl;
                 )
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/listings/show", true)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/login")
