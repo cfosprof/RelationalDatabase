@@ -10,7 +10,9 @@
 <div class="container">
     <h1>Search Results</h1>
 
-    <div th:replace="~{fragments/searchForm :: searchForm}"></div>
+
+    <div th:replace="${fragments/searchForm :: searchForm}"></div>
+
 
     <div class="row" th:each="listing : ${listings}">
         <div class="col-sm-4">
@@ -34,4 +36,5 @@
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>

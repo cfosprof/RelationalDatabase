@@ -46,7 +46,7 @@ private RealtorDetailServiceImpl realtorDetailServiceImpl;
                 .defaultSuccessUrl("/listings/show", true)
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .and()
                 .getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(realtorDetailServiceImpl)

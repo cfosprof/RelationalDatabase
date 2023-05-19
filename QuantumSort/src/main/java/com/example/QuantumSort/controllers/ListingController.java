@@ -51,6 +51,7 @@ public class ListingController {
         return "listings";
     }
 
+
     @GetMapping("/listingDetails/{id}")
     public String showListingDetails(@PathVariable("id") Long id, Model model) {
         Listing listing = listingRepository.findById(id).orElse(null);
@@ -78,6 +79,16 @@ public class ListingController {
         List<Listing> listings = listingRepository.search(query);
         model.addAttribute("listings", listings);
         return "searchResults";
+    }
+
+      @DeleteMapping("/delete/{id}")
+    public String deleteListing(@PathVariable("id") Long id, @AuthenticationPrincipal ApplicationUser user) {
+        if (user.isAgent()) {
+            listingRepository.deleteById(id);
+            return "redirect:/listings/show";
+        } else {
+            return "redirect:/login";
+        }
     }
 
 

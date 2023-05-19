@@ -36,12 +36,12 @@ public class AppUserController {
             ApplicationUser user = applicationUserRepository.findByUserName(username);
             m.addAttribute("username", username);
         }
-        return "index.html";
+        return "index";
     }
 
     @GetMapping("/signUp")
     public String showSignUpForm(Model m){
-        return "signUp.html";
+        return "signUp";
     }
 
     @PostMapping("/signUp")
@@ -55,7 +55,7 @@ public class AppUserController {
         //TODO: Add checks for isAgent based on user input
         applicationUserRepository.save(newUser);
                   authWithHttpServletRequest(userName, password, request);
-                  return new RedirectView("/");
+                  return new RedirectView("/listings/show");
                  }
 
     public void authWithHttpServletRequest(String userName, String password, HttpServletRequest request) {
@@ -67,6 +67,11 @@ public class AppUserController {
         }
     }
 
+
+    @GetMapping("/agents")
+    public String getAgents() {
+        return "agents";
+    }
 
     @GetMapping("/login")
     public String showLoginForm() {

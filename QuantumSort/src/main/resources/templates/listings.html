@@ -1,126 +1,168 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real Estate Listings</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
+    <div id="html">
+        <div th:replace="fragments/header :: header"></div>
+        <div id="card-container">
+            <div class="container my-4">
+                <div id="listing-form-background">
+                    <div th:if="${#authentication.principal.isAgent}">
+                        <div id="form-header">
+                            <h2 class="form-header">Create New Listing</h2>
+                        </div>
+                        <form action="/listings/new" method="post" class="form-group">
+                            <div class="form-inputs-of-3">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label"></label>
+                                    <input placeholder="Title" type="text" id="title" name="title" class="form-control">
+                                </div>
 
-<div class="container my-4">
-    <div th:if="${#authentication.principal.isAgent}">
-        <h2>Create New Listing</h2>
-        <form action="/listings/new" method="post" class="form-group">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title:</label>
-                <input type="text" id="title" name="title" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label"></label>
+                                    <input placeholder="Description" type="text" id="description" name="description"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <input type="text" id="description" name="description" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="price" class="form-label"></label>
+                                    <input placeholder="Price" type="number" id="price" name="price"
+                                        class="form-control">
+                                </div>
+                            </div>
 
-            <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <input type="number" id="price" name="price" class="form-control">
-            </div>
 
-            <!-- Repeat the structure for each field -->
-            <div class="mb-3">
-                <label for="address" class="form-label">Address:</label>
-                <input type="text" id="address" name="address" class="form-control">
-            </div>
+                            <div class="form-inputs-of-3">
+                                <div class="mb-3">
+                                    <label for="address" class="form-label"></label>
+                                    <input placeholder="Address" type="text" id="address" name="address"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="city" class="form-label">City:</label>
-                <input type="text" id="city" name="city" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="city" class="form-label"></label>
+                                    <input placeholder="City" type="text" id="city" name="city" class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="state" class="form-label">State:</label>
-                <input type="text" id="state" name="state" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="state" class="form-label"></label>
+                                    <input placeholder="State" type="text" id="state" name="state" class="form-control">
+                                </div>
+                            </div>
 
-            <div class="mb-3">
-                <label for="zipCode" class="form-label">Zip Code:</label>
-                <input type="text" id="zipCode" name="zipCode" class="form-control">
-            </div>
+                            <div class="form-inputs-of-3">
+                                <div class="mb-3">
+                                    <label for="zipCode" class="form-label"></label>
+                                    <input placeholder="Zip Code" type="text" id="zipCode" name="zipCode"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="bedrooms" class="form-label">Bedrooms:</label>
-                <input type="number" id="bedrooms" name="bedrooms" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="bedrooms" class="form-label"></label>
+                                    <input placeholder="Bedrooms" type="number" id="bedrooms" name="bedrooms"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="bathrooms" class="form-label">Bathrooms:</label>
-                <input type="number" id="bathrooms" name="bathrooms" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="bathrooms" class="form-label"></label>
+                                    <input placeholder="Bathrooms" type="number" id="bathrooms" name="bathrooms"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-inputs-of-3">
+                                <div class="mb-3">
+                                    <label for="squareFeet" class="form-label"></label>
+                                    <input placeholder="Square Feet" type="number" id="squareFeet" name="squareFeet"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="squareFeet" class="form-label">Square Feet:</label>
-                <input type="number" id="squareFeet" name="squareFeet" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="yearBuilt" class="form-label"></label>
+                                    <input placeholder="Year Built" type="number" id="yearBuilt" name="yearBuilt"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="yearBuilt" class="form-label">Year Built:</label>
-                <input type="number" id="yearBuilt" name="yearBuilt" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <label for="garage" class="form-label"></label>
+                                    <input placeholder="Garage" type="number" id="garage" name="garage"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-inputs-of-3">
+                                <div class="mb-3">
+                                    <label for="listPrice" class="form-label"></label>
+                                    <input placeholder="List Price" type="number" id="listPrice" name="listPrice"
+                                        class="form-control">
+                                </div>
 
-            <div class="mb-3">
-                <label for="garage" class="form-label">Garage:</label>
-                <input type="number" id="garage" name="garage" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <div class="checkbox-container">
+                                        <label for="hasPool" class="form-label">Has Pool:</label>
+                                        <input placeholder="Has Pool" type="checkbox" id="hasPool" name="hasPool"
+                                            class="form-check-input">
+                                    </div>
+                                </div>
 
-            <div class="mb-3">
-                <label for="listPrice" class="form-label">List Price:</label>
-                <input type="number" id="listPrice" name="listPrice" class="form-control">
-            </div>
+                                <div class="mb-3">
+                                    <div class="checkbox-container">
+                                        <label for="isActive" class="form-label">Is Active:</label>
+                                        <input placeholder="Is Active" type="checkbox" id="isActive" name="isActive"
+                                            class="form-check-input">
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="mb-3">
-                <label for="hasPool" class="form-label">Has Pool:</label>
-                <input type="checkbox" id="hasPool" name="hasPool" class="form-check-input">
-            </div>
-
-            <div class="mb-3">
-                <label for="isActive" class="form-label">Is Active:</label>
-                <input type="checkbox" id="isActive" name="isActive" class="form-check-input">
-            </div>
-
-            <input type="submit" value="Create Listing" class="btn btn-primary">
-        </form>
-    </div>
+                            <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">
+                        </form>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div th:each="listing : ${listings}" class="col-md-4">
-                        <div class="card my-4">
-                            <img class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
+                        <div id="card-body" class="card my-4">
+                            <form id="delete-listing" th:action="@{/listings/delete/{id}(id=${listing.id})}"
+                                method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <div th:if="${#authentication.principal.isAgent}">
+                                    <button id="delete-listing-button" type="submit">X</button>
+                                </div>
+                            </form>
+                            <img id="cardImage" class="card-img-top" src="https://unsplash.it/600/400"
+                                alt="Property Image">
+
                             <div class="card-body">
                                 <h5 class="card-title" th:text="${listing.title}"></h5>
-                                <p class="card-text"><strong>Address:</strong> <span th:text="${listing.address}"></span></p>
-                                <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span></p>
+                                <p class="card-text"><strong>Address:</strong> <span
+                                        th:text="${listing.address}"></span></p>
+                                <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span>
+                                </p>
                                 <p class="card-text"><strong>City:</strong> <span th:text="${listing.city}"></span></p>
-                                <p class="card-text"><strong>State:</strong> <span th:text="${listing.state}"></span></p>
-                                <p class="card-text"><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span></p>
-                                <p class="card-text"><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span></p>
-                                <p class="card-text"><strong>Bathrooms:</strong> <span th:text="${listing.bathrooms}"></span></p>
-                                <p class="card-text"><strong>Square Feet:</strong> <span th:text="${listing.squareFeet}"></span></p>
-                                <p class="card-text"><strong>Year Built:</strong> <span th:text="${listing.yearBuilt}"></span></p>
-                                <p class="card-text"><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
-                                <p class="card-text"><strong>List Price:</strong> $<span th:text="${listing.listPrice}"></span></p>
-                                <p class="card-text"><strong>Has Pool:</strong> <span th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
-                                <p class="card-text"><strong>Is Active:</strong> <span th:text="${listing.isActive} ? 'Yes' : 'No'"></span></p>
+                                <p class="card-text"><strong>Bedrooms:</strong> <span
+                                        th:text="${listing.bedrooms}"></span></p>
+                                <p class="card-text"><strong>Bathrooms:</strong> <span
+                                        th:text="${listing.bathrooms}"></span></p>
+                                <p class="card-text"><strong>Square Feet:</strong> <span
+                                        th:text="${listing.squareFeet}"></span></p>
                             </div>
 
-
-                            <a href="#" class="btn btn-primary">View Details</a>
-                            </div>
+                            <a id="listings-button" th:href="@{/listings/listingDetails/{id}(id=${listing.id})}"
+                                class="btn btn-primary">View Details</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</body>
+</div>
 
-            </body>
-            </html>
+</html>
