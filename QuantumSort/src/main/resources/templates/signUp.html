@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/css/styles.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-<h1>Sign Up!</h1>
-<form action="/signUp" method="POST">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="userName" required>
+    <section id="login-container">
+        <div class="contentContainer">
+            <div class="leftSide">
 
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" required>
+                <div class="imageContainer">
 
-    <label for="firstName">First Name</label>
-    <input id="firstName" name="firstName" type="text" required>
+                    <img src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true"
+                        alt="Quantum Logo" height="600px" width="600px" />
+                </div>
 
-    <label for="lastName">Last Name</label>
-    <input id="lastName" name="lastName" type="text" required>
+            </div>
+            <div class="rightSide">
+                <div id="loginHeaderContainer">
+                    <div id="loginHeaderH1">
+                        <h1>Sign up Here! </h1>
+                    </div>
+                    <div>
+                        <h2 id="loginSubHeaderH2">Sign up with your Username, Password, First name, and Last name </h3>
+                    </div>
 
-<!--    <label for="isAgent">Are you an agent?</label>-->
-<!--    <input id="isAgent" name="isAgent" type="checkbox" th:checked="${user.isAgent}">-->
+                </div>
+                <div id="loginFormContainer">
+                    <form id="loginForm" action="/signUp" method="POST">
 
-    <input type="submit" value="Sign Up">
-</form>
+
+                        <input placeholder="Username" class="loginFormInput" id="username" type="text" name="userName"
+                            required>
+
+                        <br><br>
+
+                        <input placeholder="Password" class="loginFormInput" id="password" name="password"
+                            type="password" required>
+
+                        <br><br>
+
+                        <input placeholder="First Name" class="loginFormInput" id="firstName" name="firstName"
+                            type="text" required>
+
+                        <br><br>
+
+                        <input placeholder="Last Name" class="loginFormInput" id="lastName" name="lastName" type="text" required>
+                        <br><br>
+                        <input id="loginButton" class="btn btn-primary" type="submit" value="Sign Up">
+                    </form>
+                </div>
+            </div>
+            <!--    <label for="isAgent">Are you an agent?</label>-->
+            <!--    <input id="isAgent" name="isAgent" type="checkbox" th:checked="${user.isAgent}">-->
+        </div>
+        <div class="ring-signup"></div>
+    </section>
 </body>
+
 </html>

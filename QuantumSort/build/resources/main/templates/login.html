@@ -7,27 +7,71 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Real Estate Login</title>
 </head>
 
 <body>
+    
     <main>
-            <video   autoplay muted loop id="myVideo" >
-                <source src="QuantumSort/src/main/resources/img/homes.mp4" type="video/mp4" >
-            </video>
+        <section id="login-container">
+            <div class="contentContainer">
+                <div class="leftSide">
+                    <div id="imageContainer"><img id="logoImg"
+                            src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true"
+                            height="600px" width="600px" alt="Quantum Logo" />
+                    </div>
+                </div>
+                <div class="rightSide">
+                    <div id="loginHeaderContainer">
+                        <div id="loginHeader">
+                            <div id="loginHeaderH1">
+                                <h1>Login To Your Account</h1>
+                            </div>
+                            <div>
+                                <h2 id="loginSubHeaderH2">Login using username and password</h3>
+                            </div>
+                        </div>
+                    </div>
 
-        <form action="/login" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br><br>
-            <input type="submit" value="Login">
-        </form>
+                    <div>
+                        <form id="loginForm" action="/login" method="POST">
 
-        <p>Don't have an account? <a href="/signUp">Sign Up</a></p>
+                            <input class="loginFormInput" type="text" id="username" name="username"
+                                placeholder="Username" required>
+                            <br><br>
+
+                            <input class="loginFormInput" type="password" id="password" name="password"
+                                placeholder="Password" required>
+                            <br><br>
+                            <button id="loginButton" type="submit" class="btn btn-primary">Login</button>
+                        </form>
+
+                    </div>
+
+                    <div id="signUpContainer">
+                        <div>
+                            <h2>New Here?</h2>
+                        </div>
+
+                        <div>
+                            <p>Sign up and discover some homes</p>
+                        </div>
+
+                        <div class="signupButton">
+                            <a href="/signUp">Sign Up</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="ring-login"></div>
+        </section>
 
     </main>
+</div>
 </body>
+
 </html>

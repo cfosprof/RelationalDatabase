@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div id="headerBackground2" th:fragment="header">
+        <div id="headerBackground1">
+            <div class="header-container">
+                <div th:replace="fragments/searchForm :: searchForm"></div>
+                <div id="articleContainer">
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/listings}">Listings</a>
+        <a th:href="@{/agents}">Agents</a>
+        <a th:href="@{/login}">Login</a>
+    </div>
+    </div>    
+</div>
+</div>
+</body>
+</html>

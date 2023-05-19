@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface ListingRepository extends JpaRepository<Listing, Long> {
 
-    @Query("SELECT l FROM Listing l WHERE l.id = ?1 OR l.city LIKE %?1%")
+    @Query("SELECT l FROM Listing l WHERE LOWER(l.city) = LOWER(?1)")
     List<Listing> search(String query);
 
     Optional<Listing> findById(Long id);

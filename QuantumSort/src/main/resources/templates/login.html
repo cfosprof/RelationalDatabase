@@ -12,18 +12,18 @@
 </head>
 
 <body>
+    
     <main>
         <section id="login-container">
-            <div id="contentContainer">
-                <div id="leftSide">
-                    <div id="imageContainer"><img id="logoImg" src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true" height="500" width="500" alt="Quantum Logo"/> 
+            <div class="contentContainer">
+                <div class="leftSide">
+                    <div id="imageContainer"><img id="logoImg"
+                            src="https://github.com/QuantumSort/RelationalDatabase/blob/staging/QuantumSort/src/main/resources/img/QuantumSortLogo.png?raw=true"
+                            height="600px" width="600px" alt="Quantum Logo" />
                     </div>
-<div></div>                </div>
-                <div id="rightSide">
+                </div>
+                <div class="rightSide">
                     <div id="loginHeaderContainer">
-
-                        <img />
-
                         <div id="loginHeader">
                             <div id="loginHeaderH1">
                                 <h1>Login To Your Account</h1>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <div id="loginFormContainer">
+                    <div>
                         <form id="loginForm" action="/login" method="POST">
 
                             <input class="loginFormInput" type="text" id="username" name="username"
@@ -44,7 +44,7 @@
                             <input class="loginFormInput" type="password" id="password" name="password"
                                 placeholder="Password" required>
                             <br><br>
-                            <button id="loginButton" type="submit" class="btn btn-login">Login</button>
+                            <button id="loginButton" type="submit" class="btn btn-primary">Login</button>
                         </form>
 
                     </div>
@@ -53,21 +53,25 @@
                         <div>
                             <h2>New Here?</h2>
                         </div>
+
                         <div>
                             <p>Sign up and discover some homes</p>
                         </div>
-                        <div id="signupButton">
+
+                        <div class="signupButton">
                             <a href="/signUp">Sign Up</a>
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
-            </div>
-           </div>
-           <div id="ring"></div>
+            <div class="ring-login"></div>
         </section>
 
     </main>
+</div>
 </body>
 
 </html>

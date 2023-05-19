@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="login-container">
+        <div id="card-body" class="card my-4">
+            <div id="card-img">
+                <img id="cardImage" style="width:400px;height:400px" class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
+                <img id="cardImage" style="width:400px;height:400px" class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
+                <img id="cardImage" style="width:400px;height:400px" class="card-img-top" src="https://unsplash.it/600/400" alt="Property Image">
+            </div>
+            <div class="card">
+                <h5 class="card-title" th:text="${listing.title}"></h5>
+                <p id="details-address"><strong>Address:</strong> <span th:text="${listing.address}"></span></p>
+                <br></br>
+
+
+                <div id="all-card-text">
+                    <p class="card-text"><strong>Bedrooms:</strong> <span th:text="${listing.bedrooms}"></span>
+                    </p>
+                    <br></br>
+                    <p class="card-text"><strong>Bathrooms:</strong> <span
+                            th:text="${listing.bathrooms}"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>Square Feet:</strong> <span
+                            th:text="${listing.squareFeet}"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>List Price:</strong> $<span
+                            th:text="${listing.listPrice}"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>Zip Code:</strong> <span th:text="${listing.zipCode}"></span>
+                    </p>
+                    <br></br>
+                    <p class="card-text"><strong>Year Built:</strong> <span
+                            th:text="${listing.yearBuilt}"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>Garage:</strong> <span th:text="${listing.garage}"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>Has Pool:</strong> <span
+                            th:text="${listing.hasPool} ? 'Yes' : 'No'"></span></p>
+                    <br></br>
+                    <p class="card-text"><strong>Active:</strong> <span
+                            th:text="${listing.active} ? 'Yes' : 'No'"></span></p>
+                </div>
+            </div>
+
+
+
+                <a th:href="@{/listings/show}" class="btn btn-primary">View All Listings</a>
+            </div>
+        </div>
+</body>
+
+</html>

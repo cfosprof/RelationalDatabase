@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Search Results</h1>
+
+    <div th:replace="${fragments/searchForm :: searchForm}"></div>
+
+    <div class="row" th:each="listing : ${listings}">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <img id="cardImage" class="card-img-top" src="https://unsplash.it/600/400"
+                         alt="Property Image">
+                    <h5 class="card-title" th:text="${listing.title}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="${listing.address}"></h6>
+                    <p class="card-text">
+                        Bedrooms: <span th:text="${listing.bedrooms}"></span><br>
+                        Bathrooms: <span th:text="${listing.bathrooms}"></span><br>
+                        Square Feet: <span th:text="${listing.squareFeet}"></span>
+                        Price: <span th:text="${listing.price}"></span><br>
+                    </p>
+                    <a th:href="@{/listings/listingDetails/{id}(id=${listing.id})}" class="card-link">View details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
