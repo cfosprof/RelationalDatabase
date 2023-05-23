@@ -27,8 +27,8 @@
     </div>
         <div id="card-container">
             <div class="container my-4">
+                <div th:if="${#authentication.principal.isAgent}">
                 <div id="listing-form-background">
-                    <div th:if="${#authentication.principal.isAgent}">
                         <div id="form-header">
                             <h2 class="form-header">Create New Listing</h2>
                         </div>
@@ -135,7 +135,8 @@
                             <Button id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">Create Listing</Button>
                             <!-- <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary"> -->
                         </form>
-                    </div>
+
+                </div>
                 </div>
 
                 <div class="row">
