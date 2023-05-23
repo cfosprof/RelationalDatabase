@@ -43,7 +43,7 @@ public ApplicationUser(){};
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", isAgent=" + isAgent +
+                ", agent=" + isAgent +
                 '}';
     }
 
