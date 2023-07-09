@@ -4,8 +4,13 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 @Entity
-public class AgentUser extends ApplicationUser{
-        private String email;
+@DiscriminatorValue("agent")
+public class AgentUser extends ApplicationUser {
+    private String email;
+
+    public AgentUser() {
+        super();
+    }
 
     public AgentUser(String userName, String password, String firstName, String lastName) {
         super(userName, password, firstName, lastName);

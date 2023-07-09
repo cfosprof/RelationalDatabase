@@ -68,6 +68,11 @@ public class ListingController {
             return "redirect:/login";
         }
     }
+    @GetMapping("/new")
+    public String newListingForm(Model model) {
+        model.addAttribute("newListing", new Listing());
+        return "newListing";
+    }
 
     @GetMapping("/search")
     public String searchForm() {
@@ -81,7 +86,7 @@ public class ListingController {
         return "searchResults";
     }
 
-      @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteListing(@PathVariable("id") Long id, @AuthenticationPrincipal ApplicationUser user) {
         if (user.isAgent()) {
             listingRepository.deleteById(id);

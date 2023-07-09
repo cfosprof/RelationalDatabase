@@ -1,6 +1,8 @@
 package com.example.QuantumSort.controllers;
 
+import com.example.QuantumSort.models.AgentUser;
 import com.example.QuantumSort.models.ApplicationUser;
+import com.example.QuantumSort.models.ClientUser;
 import com.example.QuantumSort.repos.ApplicationUserRepository;
 import com.example.QuantumSort.repos.ClientRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,18 +47,24 @@ public class AppUserController {
     }
 
     @PostMapping("/signUp")
-              public RedirectView createUser(String userName, String password, String firstName, String lastName, HttpServletRequest request) {
-                  ApplicationUser newUser = new ApplicationUser();
-                  newUser.setUserName(userName);
-                   String encryptedPassword = passwordEncoder.encode(password);
+    public RedirectView createUser(String userName, String password, String firstName, String lastName, boolean isAgent, HttpServletRequest request) {
+        ApplicationUser newUser;
+        if (isAgent) {
+            newUser = new AgentUser();
+        } else {
+            newUser = new ClientUser();
+        }
+        newUser.setUserName(userName);
+        String encryptedPassword = passwordEncoder.encode(password);
         newUser.setPassword(encryptedPassword);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        //TODO: Add checks for isAgent based on user input
+        newUser.setAgent(isAgent);
+
         applicationUserRepository.save(newUser);
-                  authWithHttpServletRequest(userName, password, request);
-                  return new RedirectView("/listings/show");
-                 }
+        authWithHttpServletRequest(userName, password, request);
+        return new RedirectView("/listings/show");
+    }
 
     public void authWithHttpServletRequest(String userName, String password, HttpServletRequest request) {
         try {

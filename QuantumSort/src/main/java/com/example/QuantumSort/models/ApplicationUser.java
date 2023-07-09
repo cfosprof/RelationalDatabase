@@ -8,17 +8,21 @@ import java.util.Collection;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "dtype")
 public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
-    protected String userName;
+    @Column(unique = true)
+    private String userName;
+
     protected String password;
     protected String firstName;
     protected String lastName;
     protected boolean isAgent;
 
-public ApplicationUser(){};
+    public ApplicationUser(){};
     public ApplicationUser(String userName, String password, String firstName, String lastName) {
         this.userName = userName;
         this.password = password;
@@ -43,7 +47,7 @@ public ApplicationUser(){};
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", agent=" + isAgent +
+                ", isAgent=" + isAgent +
                 '}';
     }
 
@@ -84,6 +88,8 @@ public ApplicationUser(){};
         return null;
     }
 
+    @Override
+    @Transient
     public String getPassword() {
         return password;
     }

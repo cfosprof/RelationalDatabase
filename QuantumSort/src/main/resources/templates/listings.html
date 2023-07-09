@@ -11,169 +11,168 @@
 </head>
 
 <body>
-    <div id="html">
-        <div id="headerBackground2" th:fragment="header">
-            <div id="headerBackground1">
-                <div class="header-container">
-                    <div th:replace="fragments/searchForm :: searchForm"></div>
-                    <div id="articleContainer">
-            <a th:href="@{/}">Home</a>
-            <a th:href="@{/listings/show}">Listings</a>
-            <a th:href="@{/agents}">Agents</a>
-            <a th:href="@{/login}">Login</a>
+<div id="html">
+    <div id="headerBackground2" th:fragment="header">
+        <div id="headerBackground1">
+            <div class="header-container">
+                <div th:replace="~{fragments/searchForm :: searchForm}"></div>
+                <div id="articleContainer">
+                    <a th:href="@{/}">Home</a>
+                    <a th:href="@{/listings/show}">Listings</a>
+                    <a th:href="@{/agents}">Agents</a>
+                    <a th:href="@{/login}">Login</a>
+                </div>
+            </div>
         </div>
-        </div>    
     </div>
-    </div>
-        <div id="card-container">
-            <div class="container my-4">
+    <div id="card-container">
+        <div class="container my-4">
+            <div id="listing-form-background">
                 <div th:if="${#authentication.principal.isAgent}">
-                <div id="listing-form-background">
-                        <div id="form-header">
-                            <h2 class="form-header">Create New Listing</h2>
+                    <div id="form-header">
+                        <h2 class="form-header">Create New Listing</h2>
+                    </div>
+                    <form action="/listings/new" method="post" class="form-group">
+                        <div class="form-inputs-of-3">
+                            <div class="mb-3">
+                                <label for="title" class="form-label"></label>
+                                <input placeholder="Title" type="text" id="title" name="title" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label"></label>
+                                <input placeholder="Description" type="text" id="description" name="description"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="price" class="form-label"></label>
+                                <input placeholder="Price" type="number" id="price" name="price"
+                                       class="form-control">
+                            </div>
                         </div>
-                        <form action="/listings/new" method="post" class="form-group">
-                            <div class="form-inputs-of-3">
-                                <div class="mb-3">
-                                    <label for="title" class="form-label"></label>
-                                    <input placeholder="Title" type="text" id="title" name="title" class="form-control">
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="description" class="form-label"></label>
-                                    <input placeholder="Description" type="text" id="description" name="description"
-                                        class="form-control">
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="price" class="form-label"></label>
-                                    <input placeholder="Price" type="number" id="price" name="price"
-                                        class="form-control">
+                        <div class="form-inputs-of-3">
+                            <div class="mb-3">
+                                <label for="address" class="form-label"></label>
+                                <input placeholder="Address" type="text" id="address" name="address"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="city" class="form-label"></label>
+                                <input placeholder="City" type="text" id="city" name="city" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="state" class="form-label"></label>
+                                <input placeholder="State" type="text" id="state" name="state" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-inputs-of-3">
+                            <div class="mb-3">
+                                <label for="zipCode" class="form-label"></label>
+                                <input placeholder="Zip Code" type="text" id="zipCode" name="zipCode"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bedrooms" class="form-label"></label>
+                                <input placeholder="Bedrooms" type="number" id="bedrooms" name="bedrooms"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bathrooms" class="form-label"></label>
+                                <input placeholder="Bathrooms" type="number" id="bathrooms" name="bathrooms"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-inputs-of-3">
+                            <div class="mb-3">
+                                <label for="squareFeet" class="form-label"></label>
+                                <input placeholder="Square Feet" type="number" id="squareFeet" name="squareFeet"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="yearBuilt" class="form-label"></label>
+                                <input placeholder="Year Built" type="number" id="yearBuilt" name="yearBuilt"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="garage" class="form-label"></label>
+                                <input placeholder="Garage" type="number" id="garage" name="garage"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-inputs-of-3">
+                            <div class="mb-3">
+                                <label for="listPrice" class="form-label"></label>
+                                <input placeholder="List Price" type="number" id="listPrice" name="listPrice"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="checkbox-container">
+                                    <label for="hasPool" class="form-label">Has Pool:</label>
+                                    <input placeholder="Has Pool" type="checkbox" id="hasPool" name="hasPool"
+                                           class="form-check-input">
                                 </div>
                             </div>
 
-
-                            <div class="form-inputs-of-3">
-                                <div class="mb-3">
-                                    <label for="address" class="form-label"></label>
-                                    <input placeholder="Address" type="text" id="address" name="address"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="city" class="form-label"></label>
-                                    <input placeholder="City" type="text" id="city" name="city" class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="state" class="form-label"></label>
-                                    <input placeholder="State" type="text" id="state" name="state" class="form-control">
+                            <div class="mb-3">
+                                <div class="checkbox-container">
+                                    <label for="isActive" class="form-label">Is Active:</label>
+                                    <input placeholder="Is Active" type="checkbox" id="isActive" name="isActive"
+                                           class="form-check-input">
                                 </div>
                             </div>
+                        </div>
+                        <Button id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">Create Listing</Button>
+                        <!-- <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary"> -->
+                    </form>
+                </div>
+            </div>
 
-                            <div class="form-inputs-of-3">
-                                <div class="mb-3">
-                                    <label for="zipCode" class="form-label"></label>
-                                    <input placeholder="Zip Code" type="text" id="zipCode" name="zipCode"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="bedrooms" class="form-label"></label>
-                                    <input placeholder="Bedrooms" type="number" id="bedrooms" name="bedrooms"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="bathrooms" class="form-label"></label>
-                                    <input placeholder="Bathrooms" type="number" id="bathrooms" name="bathrooms"
-                                        class="form-control">
-                                </div>
+            <div class="row">
+                <div th:each="listing : ${listings}" class="col-md-4">
+                    <div id="card-body" class="card my-4">
+                        <form id="delete-listing" th:action="@{/listings/delete/{id}(id=${listing.id})}"
+                              method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <div th:if="${#authentication.principal.isAgent}">
+                                <button id="delete-listing-button" type="submit">X</button>
                             </div>
-                            <div class="form-inputs-of-3">
-                                <div class="mb-3">
-                                    <label for="squareFeet" class="form-label"></label>
-                                    <input placeholder="Square Feet" type="number" id="squareFeet" name="squareFeet"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="yearBuilt" class="form-label"></label>
-                                    <input placeholder="Year Built" type="number" id="yearBuilt" name="yearBuilt"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="garage" class="form-label"></label>
-                                    <input placeholder="Garage" type="number" id="garage" name="garage"
-                                        class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-inputs-of-3">
-                                <div class="mb-3">
-                                    <label for="listPrice" class="form-label"></label>
-                                    <input placeholder="List Price" type="number" id="listPrice" name="listPrice"
-                                        class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <div class="checkbox-container">
-                                        <label for="hasPool" class="form-label">Has Pool:</label>
-                                        <input placeholder="Has Pool" type="checkbox" id="hasPool" name="hasPool"
-                                            class="form-check-input">
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <div class="checkbox-container">
-                                        <label for="isActive" class="form-label">Is Active:</label>
-                                        <input placeholder="Is Active" type="checkbox" id="isActive" name="isActive"
-                                            class="form-check-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <Button id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary">Create Listing</Button>
-                            <!-- <input id="create-listing-button" type="submit" value="Create Listing" class="btn btn-primary"> -->
                         </form>
+                        <img id="cardImage" class="card-img-top" src="https://unsplash.it/600/400"
+                             alt="Property Image">
 
-                </div>
-                </div>
-
-                <div class="row">
-                    <div th:each="listing : ${listings}" class="col-md-4">
-                        <div id="card-body" class="card my-4">
-                            <form id="delete-listing" th:action="@{/listings/delete/{id}(id=${listing.id})}"
-                                method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <div th:if="${#authentication.principal.isAgent}">
-                                    <button id="delete-listing-button" type="submit">X</button>
-                                </div>
-                            </form>
-                            <img id="cardImage" class="card-img-top" src="https://unsplash.it/600/400"
-                                alt="Property Image">
-
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${listing.title}"></h5>
-                                <p class="card-text"><strong>Address:</strong> <span
-                                        th:text="${listing.address}"></span></p>
-                                <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span>
-                                </p>
-                                <p class="card-text"><strong>City:</strong> <span th:text="${listing.city}"></span></p>
-                                <p class="card-text"><strong>Bedrooms:</strong> <span
-                                        th:text="${listing.bedrooms}"></span></p>
-                                <p class="card-text"><strong>Bathrooms:</strong> <span
-                                        th:text="${listing.bathrooms}"></span></p>
-                                <p class="card-text"><strong>Square Feet:</strong> <span
-                                        th:text="${listing.squareFeet}"></span></p>
-                            </div>
-                            <Button id="listings-button" th:href="@{/listings/listingDetails/{id}(id=${listing.id})}"
-                            class="btn btn-primary">View Details</Button>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${listing.title}"></h5>
+                            <p class="card-text"><strong>Address:</strong> <span
+                                    th:text="${listing.address}"></span></p>
+                            <p class="card-text"><strong>Price:</strong> $<span th:text="${listing.price}"></span>
+                            </p>
+                            <p class="card-text"><strong>City:</strong> <span th:text="${listing.city}"></span></p>
+                            <p class="card-text"><strong>Bedrooms:</strong> <span
+                                    th:text="${listing.bedrooms}"></span></p>
+                            <p class="card-text"><strong>Bathrooms:</strong> <span
+                                    th:text="${listing.bathrooms}"></span></p>
+                            <p class="card-text"><strong>Square Feet:</strong> <span
+                                    th:text="${listing.squareFeet}"></span></p>
                         </div>
+                        <Button id="listings-button" th:href="@{/listings/listingDetails/{id}(id=${listing.id})}"
+                                class="btn btn-primary">View Details</Button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </div>
 
